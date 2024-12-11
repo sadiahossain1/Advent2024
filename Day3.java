@@ -22,7 +22,7 @@ public class Day3 {
             allMatches.add(m.group());
         }
         for (int i = 0; i < allMatches.size(); i++) {
-            String one = allMatches.get(i).substring(5, allMatches.get(i).indexOf(","));
+            String one = allMatches.get(i).substring(4, allMatches.get(i).indexOf(","));
             String two = allMatches.get(i).substring(allMatches.get(i).indexOf(",")+1, allMatches.get(i).indexOf(")"));
             int num1 = Integer.parseInt(one);
             int num2 = Integer.parseInt(two);
