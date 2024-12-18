@@ -45,8 +45,37 @@ public class Day4 {
             }
         }
 
-        System.out.println("Part One: " + total);
+        int total2 = 0;
+        for (int r = 0; r < grid.length; r++) {
+            for (int c = 0; c < grid[0].length; c++) {
+                if (partTwo(grid, r, c)) {
+                    total2++;
+                }
+            }
+        }
 
+        System.out.println("Part One: " + total);
+        System.out.println("Part Two: " + total2);
+
+    }
+
+    public static boolean partTwo(String[][] grid, int r, int c) {
+        try {
+            String a = grid[r][c];
+            String topRight = grid[r - 1][c + 1];
+            String bottomLeft = grid[r + 1][c - 1];
+            String first = topRight + a + bottomLeft;
+            String topLeft = grid[r - 1][c - 1];
+            String bottomRight = grid[r + 1][c + 1];
+            String second = topLeft + a + bottomRight;
+            if ((first.equals("MAS") || first.equals("SAM")) && (second.equals("MAS") || second.equals("SAM")))
+                return true;
+            else
+                return false;
+        }
+        catch (Exception e) {
+            return false;
+        }
     }
 
     public static boolean checkXMASUp(String[][] grid, int r, int c) {
